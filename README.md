@@ -1,54 +1,94 @@
-# kHOA1245
-Bai tap ve in so va tinh toan dt
-
-#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
+char choose;
+	int N,i, datalist;
+void ShowMenu() {
+		printf("\n1. Hay nhap so nguyen N = ");
+		printf("\n2. N! = ");
+		printf("\n3. 1+2+...+N = ");
+		printf("\n4. So sanh N! voi 1+2+..N");
+		printf("\n5. THOAT!!!");
+		printf("\n Xin hay chon mot trong 5 phuong an: ");
+		scanf("%d", &choose);
+}
+void input() {
+	
 
-int main(int argc, char** argv) {
-	printf("\n================= nhap tu ban phim =================\n");
-	int chieudai, chieurong, chuVi, DienTich;
-	printf("\nNhap gia tri cua chieudai = ");
-	scanf("%d", &chieudai);
-	printf("\nchieudai = %d", chieudai);
-		printf("\nNhap gia tri cua chieurong = ");
-	scanf("%d", &chieurong);
-	printf("\nchieurong = %d",chieurong);
- chuVi = chieurong + chieudai + chieurong + chieudai;
- printf("\nChu Vi cua hinh chu nhat =");
-	printf("\n%d", chuVi );
-	DienTich = chieurong*chieudai;
-	 printf("\nDien Tich cua hinh chu nhat =");
-	printf("\n%d", DienTich);
+	printf("\nHay nhap vao so nguyen N: ");
+scanf("%d", &N);
+}
+void Cacu1() {
+
+	int Multiplication = 1;
+			for(i = 1; i<=N;i++){
+	Multiplication = Multiplication * i ;
+}
+printf("\nVay %d! = %d", N, Multiplication);}
+void Cacu2() {
+	int Sum = 0;
+	for(i=0; i<=N;i++){
+		Sum = Sum + i;
+	}
+	printf("\nVay 1+2+3+...+%d = %d", N, Sum);
+}
+
+void compare(){
+	int Sum = 0;
+	for(i=0; i<=N;i++){
+		Sum = Sum + i;
+	}
+int Multiplication = 1;
+			for(i = 1; i<=N;i++){
+	Multiplication = Multiplication * i ;
+}
+	if(Sum > Multiplication){
+		printf("\nVay 1+2+...+%d > %d!", N,N);
+	}else if(Multiplication > Sum){
+		printf("\nVay 1+2+...+%d < %d!", N,N);
+	};
+}
+int main(int argc, char *argv[]) {
+
+	do{
+		
+		ShowMenu();
+		scanf("%d", &choose);
+		switch(choose){
+			case 1:{
+			input();
+
+				break;
+			}
+			case 2:{
+					Cacu1()
+;};
+
+case 3:{
+	Cacu2()
 	
+	;break;
+}
+case 4:{
+compare()
+	;break;
+}
+case 5:{
+printf("\nTHOAT!!!");
+	break;
+}default:{
+printf("\nNHAP SAI!!!");
+break;
+}
+
 	
-	int BanKinhHinhTron, ChuViHinhTron, DienTichHinhTron;
-	printf("\nBan kinh hinh tron =");
-	scanf("%d", &BanKinhHinhTron);
-	printf("\nBan Kinh hinh tron = %d", BanKinhHinhTron);
-	ChuViHinhTron = BanKinhHinhTron*2*3.14;
-	printf("\nChu vi cua hinh tron la");
-	printf("\n%d", ChuViHinhTron);
-		DienTichHinhTron = BanKinhHinhTron*BanKinhHinhTron*3.14;
-	printf("\nDien Tich cua hinh tron la");
-	printf("\n%d", DienTichHinhTron);
-	
-int i;
-int n;
-  long S;
-  S = 0;
-  i = 1;
-  printf("\nNhap vào so N: ");
-  scanf("%d", &n);
- 
-  for(int i = 1; i <=n; i++)
-    {
-        S = S + i;
-    }
-  printf("\nTu 1 den N la  1 + 2 + ... + %d là %ld: ", n, S);
- 
-  printf("\n----------------------------------------\n");
-	
-	
-		return 0;
+
+				
+				
+			};
+			
+		
+	;}while(choose != 5);
+	return 0;
 }
